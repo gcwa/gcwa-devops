@@ -1,0 +1,11 @@
+- name: Download OpenWayback
+  get_url: url=http://search.maven.org/remotecontent?filepath=org/netpreserve/openwayback/openwayback-dist/2.1.0.RC.1/openwayback-dist-2.1.0.RC.1.tar.gz dest=/tmp/openwayback-dist-2.1.0.RC.1.tar.gz
+
+- name: Uncompress OpenWayback
+  unarchive: src=/tmp/openwayback-dist-2.1.0.RC.1.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/openwayback
+
+- name: clear Tomcat current ROOT app
+  file: path=/opt/apache-tomcat-7.0.64/webapps/ROOT/ state=absent
+
+- name: install OpenWayback war
+  copy: src=/opt/openwayback/openwayback-2.1.0.RC.1.war dest=/opt/apache-tomcat-7.0.64/webapps/ROOT.war owner=root group=root mode=644 backup=yes

@@ -1,0 +1,3 @@
+- name: ensure base development system is installed
+  yum: name="@Development Tools" state=present
+

@@ -1,0 +1,15 @@
+- name: add group "tomcat"
+  group: name=tomcat
+
+- name: add user "tomcat"
+  user: name=tomcat group=tomcat home=/usr/share/tomcat createhome=no
+  sudo: True
+
+- name: Download Tomcat
+  get_url: url=http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.64/bin/apache-tomcat-7.0.64.tar.gz dest=/tmp/apache-tomcat-7.0.64.tar.gz
+
+- name: Uncompress Tomcat
+  unarchive: src=http://mirror.its.dal.ca/apache/tomcat/tomcat-7/v7.0.64/bin/apache-tomcat-7.0.64.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/apache-tomcat-7.0.64
+
+- name: Change ownership of Tomcat installation
+  file: path=/opt/apache-tomcat-7.0.64 owner=tomcat group=tomcat state=directory recurse=yes
