@@ -21,7 +21,7 @@
   file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
 
 - name: Install Tomcat systemd config
-  copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
+  copy: src=tomcat.service dest=/etc/init.d/tomcat mode=0755
 
 - name: Start Tomcat
   service: name=tomcat state=started enabled=yes
