@@ -4,12 +4,12 @@ Ansible scripts to provision a dev environment suitable for web archiving tools
 
 - OpenWayback
   - OpenJDK 7
-  - Tomcat
+  - Tomcat 7
 
 
 ## Pre-requisites
 
-- Red Hat Enterprise Linux (RHEL) 6.4+ or a derivative (ex: CentOS 6.4)
+- Red Hat Enterprise Linux (RHEL) 7.x or a derivative (ex: CentOS 7.x)
 
 
 ### Ansible

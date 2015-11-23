@@ -8,3 +8,4 @@
     - vim-common
     - wget
     - git
+    - libselinux-python

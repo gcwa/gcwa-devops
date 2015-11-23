@@ -1,0 +1,6 @@
+- name: ensure MySQL is installed
+  yum: name="{{ item }}" state=present
+  with_items:
+    - mariadb
+    - mariadb-devel
+    - mariadb-server
