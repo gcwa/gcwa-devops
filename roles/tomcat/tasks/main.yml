@@ -15,16 +15,20 @@
   file: path=/opt/apache-tomcat-7.0.64 owner=tomcat group=tomcat state=directory recurse=yes
 
 - name: Symlink install directory
-  file: src=/opt/apache-tomcat-7.0.64 path=/usr/share/tomcat state=link
+  file: src=/opt/apache-tomcat-7.0.64 path=/opt/tomcat state=link
 
 - name: Change ownership of Tomcat installation
-  file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
+  file: path=/opt/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
 
 - name: Install Tomcat systemd config
-  copy: src=tomcat.service dest=/etc/init.d/tomcat mode=0755
+  copy: src=tomcat.service dest=/lib/systemd/system/tomcat.service mode=0644 owner=root group=root
+
+- name: reload systemd
+  command: /usr/bin/systemctl --system daemon-reload
 
 - name: Start Tomcat
   service: name=tomcat state=started enabled=yes
 
 - name: wait for tomcat to start
   wait_for: port=8080
+
