@@ -9,3 +9,5 @@
     - wget
     - git
     - libselinux-python
+    - unzip
+    - htop
