@@ -1,4 +1,3 @@
-ystemd unit file for tomcat
 [Unit]
 Description=Apache Tomcat Web Application Container
 After=syslog.target network.target
