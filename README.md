@@ -21,7 +21,7 @@ To install ansible, in the current directory on the RHEL server, execute
 
 ## Usage
 
-    ansible-playbook playbook-openwayback.yml --connection=local
+    ansible-playbook playbook-openwayback.yml
 
 
 ## Proxy
