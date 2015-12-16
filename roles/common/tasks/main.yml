@@ -6,6 +6,7 @@
   with_items:
     - curl
     - vim-common
+    - vim-enhanced
     - wget
     - git
     - libselinux-python
