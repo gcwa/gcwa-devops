@@ -1,0 +1,7 @@
+- name: ensure some requirements for working on MS Azure are fulfilled
+  yum: name={{ item }} state=present
+  with_items:
+    - samba-client
+    - samba-common
+    - cifs-utils
+
