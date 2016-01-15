@@ -1,6 +1,10 @@
-- name: ensure MySQL is installed
+- name: Ensure MySQL (mariaDB) is installed
   yum: name="{{ item }}" state=present
   with_items:
     - mariadb
     - mariadb-devel
     - mariadb-server
+
+- name: Security Notice
+  debug: msg="!!! You should execute mysql_secure_installation to secure your MySQL if you haven't done already !!!"
+
