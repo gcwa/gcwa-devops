@@ -1,2 +1,2 @@
-- name: ensure OpenJDK 1.7 runtime is installed
-  yum: name=java-1.7.0-openjdk state=present
+- name: ensure OpenJDK 1.8 runtime is installed
+  yum: name=java-1.8.0-openjdk state=present
