@@ -1,8 +1,8 @@
 - name: Download jwat-tools
-  get_url: url=https://bitbucket.org/nclarkekb/jwat-tools/downloads/jwat-tools-0.6.2.tar.gz dest=/tmp/jwat-tools-0.6.2.tar.gz
+  get_url: url=https://bitbucket.org/nclarkekb/jwat-tools/downloads/jwat-tools-{{ jwattools.version }}.tar.gz dest=/tmp/jwat-tools-{{ jwattools.version }}.tar.gz
 
 - name: Uncompress jwat-tools
-  unarchive: src=/tmp/jwat-tools-0.6.2.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/jwat-tools-0.6.2
+  unarchive: src=/tmp/jwat-tools-{{ jwattools.version }}.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/jwat-tools-{{ jwattools.version }}
 
 - name: Symlink install directory
   file: src=/opt/jwat-tools-0.6.2 path=/opt/jwat-tools state=link

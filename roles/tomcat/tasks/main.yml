@@ -6,16 +6,16 @@
   sudo: True
 
 - name: Download Tomcat
-  get_url: url=http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.64/bin/apache-tomcat-7.0.64.tar.gz dest=/tmp/apache-tomcat-7.0.64.tar.gz
+  get_url: url=http://archive.apache.org/dist/tomcat/tomcat-{{ tomcat.majorversion }}/v{{ tomcat.version }}/bin/apache-tomcat-{{ tomcat.version }}.tar.gz dest=/tmp/apache-tomcat-{{ tomcat.version }}.tar.gz
 
 - name: Uncompress Tomcat
-  unarchive: src=/tmp/apache-tomcat-7.0.64.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/apache-tomcat-7.0.64
+  unarchive: src=/tmp/apache-tomcat-{{ tomcat.version }}.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/apache-tomcat-{{ tomcat.version }}
 
 - name: Change ownership of Tomcat installation
-  file: path=/opt/apache-tomcat-7.0.64 owner=tomcat group=tomcat state=directory recurse=yes
+  file: path=/opt/apache-tomcat-{{ tomcat.version }} owner=tomcat group=tomcat state=directory recurse=yes
 
 - name: Symlink install directory
-  file: src=/opt/apache-tomcat-7.0.64 path=/opt/tomcat state=link
+  file: src=/opt/apache-tomcat-{{ tomcat.version }} path=/opt/tomcat state=link
 
 - name: Change ownership of Tomcat installation
   file: path=/opt/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes

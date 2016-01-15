@@ -1,0 +1,9 @@
+---
+openwayback:
+    version: 2.2.0
+tomcat:
+    majorversion: 7
+    version: 7.0.64
+jwattools:
+    version: 0.6.2
+
