@@ -21,7 +21,7 @@
   file: path=/opt/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
 
 - name: Install Tomcat systemd config
-  copy: src=tomcat.service dest=/lib/systemd/system/tomcat.service mode=0644 owner=root group=root
+  copy: src=tomcat.service dest=/etc/systemd/system/tomcat.service mode=0644 owner=root group=root
 
 - name: reload systemd
   command: /usr/bin/systemctl --system daemon-reload
