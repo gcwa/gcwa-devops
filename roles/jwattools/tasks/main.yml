@@ -5,4 +5,4 @@
   unarchive: src=/tmp/jwat-tools-{{ jwattools.version }}.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/jwat-tools-{{ jwattools.version }}
 
 - name: Symlink install directory
-  file: src=/opt/jwat-tools-0.6.2 path=/opt/jwat-tools state=link
+  file: src=/opt/jwat-tools-{{ jwattools.version }} path=/opt/jwat-tools state=link
