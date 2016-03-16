@@ -1,3 +1,7 @@
 - name: ensure base development system is installed
   yum: name="@Development Tools" state=present
 
+- name: ensure some useful dev packages are installed
+  yum: name={{ item }} state=present
+  with_items:
+    - jq
