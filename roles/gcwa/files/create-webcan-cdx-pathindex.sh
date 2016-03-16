@@ -7,14 +7,52 @@
 
 # !!! WON'T work with MINGw64 (provided by Git / Git-bash), USE CYGWIN !!!
 
+
 ### EDIT THIS !! ###
+
 # JDK install to use
 export JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.8.0_74"
+
 # Pointer to your openwayback 2.3 install
 export WAYBACK_HOME="/cygdrive/c/Users/LAC_local/Applications/openwayback-2.3.0-dist"
+
 # Java runtime options
 export JAVA_OPTS="-Xmx1024m"
+
 ### STOP EDITING ###
+
+
+## Functions
+
+# param: foldername
+function create_indexcdx {
+    echo "create index.cdx in     " $1
+    export LC_ALL=C # somehow this setting disapear sometimes...
+    cd $1
+    rm -fr index.cdx
+    for i in *.cdx; do echo -en $(basename $i)'\0';done | sort -m -u -o index.cdx --files0-from=-
+}
+
+# param: foldername
+function create_pathindextxt {
+    echo "create path-index.txt in" $1
+    cd $1
+    rm -f path-index.txt
+    for warc in *arc.gz 
+    do 
+        echo -e $warc "\t"`pwd`"/"$warc >> path-index.txt
+    done
+    export LC_ALL=C # somehow this setting disapear sometimes...
+    sort path-index.txt -o path-index.txt    
+}
+
+## /Functions
+
+
+basedir=`pwd`
+
+
+## Main script
 
 echo "Create CDXs"
 START_TIME=$SECONDS
@@ -40,27 +78,21 @@ do
    sort -u $cdx -o $cdx
 done
 
-## TMP send CDX in the cloud at this point, as the rest of the script is not working yet
+## Temporary: send the CDXs in the cloud at this point, as do the rest in the cloud
 #rsync --dry-run -ruth --progress --include="*/" --include="*.cdx" --exclude="*" ./ lacwayback@lacbac03.cloudapp.net:/mnt/webarch003/
 
-## TODO have the rest of the script deal with the deep directory structure used by webcan
-##  and create an index.cdx/path-index.txt for each theme
 
-#echo "Create folder's main index.cdx"
-#export LC_ALL=C
-#rm -fr index.cdx
-#for i in *.cdx; do echo -en $(basename $i)'\0';done | sort -m -u -o index.cdx --files0-from=-
-
-
-#echo "create path-index.txt"
-#rm -f path-index.txt
-#for warc in *.warc.gz 
-#do 
-#     echo -e $warc "\t/mnt/lto01v/"`basename \`pwd\``"/"$warc >> path-index.txt
-#done
-#export LC_ALL=C
-#sort path-index.txt -o path-index.txt
+for arc in heritrix/*/*/arcs
+do 
+    create_indexcdx $arc
+    cd $basedir
+    create_pathindextxt $arc
+    cd $basedir
+done
 
 
-#echo "Compress CDXs"
-#gzip *.cdx
+echo "Compress CDXs"
+for cdx in heritrix/*/*/arcs/*.cdx
+do 
+    gzip $cdx
+done
