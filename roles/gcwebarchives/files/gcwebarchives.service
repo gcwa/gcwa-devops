@@ -1,0 +1,11 @@
+[Unit]
+Description=GCWebArchive
+After=syslog.target network.target
+
+[Service]
+User=lacwayback
+ExecStart=/opt/gcwebarchive/gcwebarchive.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

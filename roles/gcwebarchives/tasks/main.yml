@@ -1,0 +1,11 @@
+- name: Install GCWebArchives systemd config
+  copy: src=gcwebarchives.service dest=/etc/systemd/system/gcwebarchives.service mode=0644 owner=root group=root
+
+- name: reload systemd
+  command: /usr/bin/systemctl --system daemon-reload
+
+- name: create gcwebarchives folder with proper permission
+  file: path=/opt/gcwebarchives owner=lacwayback group=lacwayback state=directory recurse=yes
+  
+- name: Manual Operation Required
+  debug: msg="Please compile gcwebarchives from https://github.com/gcwa/gcwa-present and install .jar in /opt/gcwebarchives"
