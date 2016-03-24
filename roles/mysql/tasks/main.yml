@@ -5,6 +5,9 @@
     - mariadb-devel
     - mariadb-server
 
+- name: launch mysql server now and on startup
+  service: name=mariadb enabled=true state=started
+ 
 - name: Security Notice
   debug: msg="!!! You should execute mysql_secure_installation to secure your MySQL if you haven't done already !!!"
 
