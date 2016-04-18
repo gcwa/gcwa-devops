@@ -1,9 +1,8 @@
 ---
 openwayback:
-    version: 2.3.0
+    version: 2.3.2-SNAPSHOT
 tomcat:
     majorversion: 7
     version: 7.0.68
 jwattools:
     version: 0.6.2
-

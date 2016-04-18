@@ -1,11 +1,8 @@
-- name: Download OpenWayback
-  get_url: url=http://search.maven.org/remotecontent?filepath=org/netpreserve/openwayback/openwayback-dist/{{ openwayback.version }}/openwayback-dist-{{ openwayback.version }}.tar.gz dest=/tmp/openwayback-dist-{{ openwayback.version }}.tar.gz
-
-- name: Uncompress OpenWayback
-  unarchive: src=/tmp/openwayback-dist-{{ openwayback.version }}.tar.gz dest=/opt/ copy=no owner=root group=root creates=/opt/openwayback/openwayback-{{ openwayback.version }}.war
-
-- name: clear Tomcat current ROOT app
-  file: path=/opt/tomcat/webapps/ROOT/ state=absent
-
+- name: Manual Operation Required
+  debug: msg="Please compile openwayback from https://github.com/gcwa/openwayback and uncompress into /opt/openwayback"
+  
 - name: install OpenWayback war
   copy: src=/opt/openwayback/openwayback-{{ openwayback.version }}.war dest=/opt/tomcat/webapps/ROOT.war owner=root group=root mode=644 backup=yes
+
+#- name: clear Tomcat current ROOT app
+#  file: path=/opt/tomcat/webapps/ROOT/ state=absent
