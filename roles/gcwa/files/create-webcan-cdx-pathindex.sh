@@ -10,11 +10,13 @@
 
 ### EDIT THIS !! ###
 
-# JDK install to use
-export JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.8.0_74"
+# JAVA install to use
+#export JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.8.0_74"
+export JAVA_HOME="/etc/alternatives/jre"
 
-# Pointer to your openwayback 2.3 install
-export WAYBACK_HOME="/cygdrive/c/Users/LAC_local/Applications/openwayback-2.3.0-dist"
+# Pointer to your OpenWayback install (preferably GCWA version)
+#export WAYBACK_HOME="/cygdrive/c/Users/LAC_local/Applications/openwayback-2.3.0-dist"
+export WAYBACK_HOME="/opt/openwayback"
 
 # Java runtime options
 export JAVA_OPTS="-Xmx1024m"
