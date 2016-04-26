@@ -42,7 +42,7 @@ function create_pathindextxt {
     rm -f path-index.txt
     for warc in *arc.gz 
     do 
-        echo -e $warc "\t"`pwd`"/"$warc >> path-index.txt
+        echo -e $warc"\t"`pwd`"/"$warc >> path-index.txt
     done
     export LC_ALL=C # somehow this setting disapear sometimes...
     sort path-index.txt -o path-index.txt    

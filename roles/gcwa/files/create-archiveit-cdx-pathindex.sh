@@ -26,11 +26,7 @@ echo "create path-index.txt"
 rm -f path-index.txt
 for warc in *.warc.gz 
 do 
-     echo -e $warc "\t/mnt/lto01v/"`basename \`pwd\``"/"$warc >> path-index.txt
+     echo -e $warc"\t/mnt/lto01v/"`basename \`pwd\``"/"$warc >> path-index.txt
 done
 export LC_ALL=C
 sort path-index.txt -o path-index.txt
-
-
-echo "re-compress CDXs"
-gzip *.cdx
