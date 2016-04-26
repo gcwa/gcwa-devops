@@ -48,6 +48,16 @@ function create_pathindextxt {
     sort path-index.txt -o path-index.txt    
 }
 
+# param: foldername
+function create_theme_indexes {
+    echo "create theme index.cdx/path-index.txt in     " $1
+    export LC_ALL=C # somehow this setting disapear sometimes...
+    cd $1
+    rm -fr index.cdx path-index.txt
+    for i in */arcs/index.cdx; do echo -en $i'\0';done | sort -m -u -o index.cdx --files0-from=-
+    for i in */arcs/path-index.cdx; do echo -en $i'\0';done | sort -m -u -o path-index.txt --files0-from=-
+}
+
 ## /Functions
 
 
@@ -56,7 +66,7 @@ basedir=`pwd`
 
 ## Main script
 
-echo "Create CDXs"
+echo "Create a CDX file for every ARC/WARC"
 START_TIME=$SECONDS
 for arc in heritrix/*/*/arcs/*arc.gz
 do
@@ -80,10 +90,7 @@ do
    sort -u $cdx -o $cdx
 done
 
-## Temporary: send the CDXs in the cloud at this point, as do the rest in the cloud
-#rsync --dry-run -ruth --progress --include="*/" --include="*.cdx" --exclude="*" ./ lacwayback@lacbac03.cloudapp.net:/mnt/webarch003/
-
-
+## Create one index.cdx and one path-index.txt in each `arc` folder
 for arc in heritrix/*/*/arcs
 do 
     create_indexcdx $arc
@@ -92,9 +99,9 @@ do
     cd $basedir
 done
 
-
-echo "Compress CDXs"
-for cdx in heritrix/*/*/arcs/*.cdx
-do 
-    gzip $cdx
+## Create one index.cdx/path-index.txt in each "theme" folder
+for theme in heritrix/*
+do
+    create_theme_indexes $theme
+    cd $basedir
 done
