@@ -11,13 +11,16 @@ Ansible scripts to provision a dev environment suitable for web archiving tools
 
 - Red Hat Enterprise Linux (RHEL) 7.x or a derivative (ex: CentOS 7.x)
 
-
 ### Ansible
 
 To install ansible, in the current directory on the RHEL server, execute
 
     sudo setup_ansible.sh
 
+## DevOps info
+
+Extra devops info, deployment instructions, and how to add a collection to OpenWayback can be found on the wiki
+https://github.com/gcwa/gcwa-devops/wiki
 
 ## Usage
 
