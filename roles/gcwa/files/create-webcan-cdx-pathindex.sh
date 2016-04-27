@@ -55,7 +55,7 @@ function create_theme_indexes {
     cd $1
     rm -fr index.cdx path-index.txt
     for i in */arcs/index.cdx; do echo -en $i'\0';done | sort -m -u -o index.cdx --files0-from=-
-    for i in */arcs/path-index.cdx; do echo -en $i'\0';done | sort -m -u -o path-index.txt --files0-from=-
+    for i in */arcs/path-index.txt; do echo -en $i'\0';done | sort -m -u -o path-index.txt --files0-from=-
 }
 
 ## /Functions
