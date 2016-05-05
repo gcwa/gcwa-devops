@@ -12,3 +12,4 @@
     - libselinux-python
     - unzip
     - htop
+    - ack
