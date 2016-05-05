@@ -7,3 +7,7 @@
     - jq
     - tmux
     - maven
+    - java-1.8.0-openjdk-devel
+    - curl
+    - git
+    - ack
