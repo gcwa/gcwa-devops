@@ -18,6 +18,10 @@ ExecStop=/bin/kill -15 $MAINPID
 User=tomcat
 Group=tomcat
 
+# To prevent "Too many open files" errors
+#LimitNOFILE=65536
+
+
 [Install]
 WantedBy=multi-user.target
 
