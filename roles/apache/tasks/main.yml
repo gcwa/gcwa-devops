@@ -1,0 +1,11 @@
+- name: ensure Apache is installed
+  yum: name={{ item }} state=present
+  with_items:
+    - httpd
+    - httpd-devel
+    - httpd-tools
+    - crypto-utils
+
+- name: ensure Apache service is started
+  service: name=httpd state=started enabled=yes
+
