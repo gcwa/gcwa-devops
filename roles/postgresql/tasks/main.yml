@@ -1,0 +1,19 @@
+- name: Ensure Postgresql is installed
+  yum: name="{{ item }}" state=present
+  with_items:
+    - postgresql
+    - postgresql-server
+    - postgresql-contrib
+
+- name: launch postgresql server now and on startup
+  service: name=postgresql enabled=true state=stopped
+ 
+- name: Notice DB
+  debug: msg="!!! You should create a new PostgreSQL database cluster `sudo postgresql-setup initdb` !!!"
+
+- name: Notice startup
+  debug: msg="!!! after the cluster is created, you will be able to start the server with `sudo systemctl start postgresql` !!!"
+
+- name: Notice Allow password authentication
+  debug: msg="!!! To allow password auth, replace `ident` with `md5` in /var/lib/pgsql/data/pg_hba.conf !!!"
+
