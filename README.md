@@ -19,8 +19,8 @@ To install ansible, in the current directory on the RHEL server, execute
 
 ## DevOps info
 
-Extra devops info, deployment instructions, and how to add a collection to OpenWayback can be found on the wiki
-https://github.com/gcwa/gcwa-devops/wiki
+Extra devops info, deployment instructions, and how to add a collection to OpenWayback can be found inside the `doc` folder
+https://github.com/gcwa/gcwa-devops/tree/master/doc
 
 ## Usage
 
