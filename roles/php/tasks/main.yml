@@ -1,0 +1,59 @@
+- name: ensure PHP is installed
+  yum: name=php state=present
+
+- name: ensure PHP and extensions are installed
+  yum: name={{ item }} state=present
+  with_items:
+    - php-bcmath
+    - php-cli
+    - php-common
+    - php-dba
+    - php-devel
+    - php-gd
+    - php-gmp
+    - php-intl
+    - php-ldap
+    - php-mbstring
+    - php-mcrypt
+    - php-mysql
+    - php-odbc
+    - php-pdo
+    - php-pear
+    - php-pecl-apc
+    - php-pecl-memcache
+    - php-pecl-xdebug
+    - php-pecl-xhprof
+    - php-pgsql
+    - php-process
+    - php-soap
+    - php-xml
+    - php-xmlrpc
+
+
+- name: set PHP .ini timezone config
+  lineinfile: dest=/etc/php.ini
+              regexp='^date.timezone\s?='
+              line="date.timezone = \"America/Toronto\""
+
+- name: set PHP .ini display_errors for Developement
+  lineinfile: dest=/etc/php.ini
+              regexp='^display_errors\s?='
+              line="display_errors = On"
+
+- name: set PHP .ini error_reporting for Development
+  lineinfile: dest=/etc/php.ini
+              regexp='^error_reporting\s?='
+              line="error_reporting = E_ALL"
+
+- name: set PHP .ini display_startup_errors for Development
+  lineinfile: dest=/etc/php.ini
+              regexp='^display_startup_errors\s?='
+              line="display_startup_errors = On"
+
+- name: set PHP .ini memory_limit for Development and WetKit
+  lineinfile: dest=/etc/php.ini
+              regexp='^memory_limit\s?='
+              line="memory_limit = 384M"
+
+- name: ensure Apache service is restarted
+  service: name=httpd state=reloaded

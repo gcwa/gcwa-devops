@@ -1,0 +1,9 @@
+{
+    "require": {
+        "phploc/phploc": "*",
+        "sebastian/phpcpd": "*",
+        "pdepend/pdepend": "*",
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "*"
+    }
+}
