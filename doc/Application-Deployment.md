@@ -46,6 +46,7 @@ Open file `playbook-openwayback.yml` and only keep the roles you need before run
     - `/opt/tomcat/webapps/ROOT/WEB-INF/wayback.xml`
     - `/opt/tomcat/webapps/ROOT/WEB-INF/CDXCollection.xml`
 - data disk: /data/indexes/openwayback (v99wayback01-921260b70d8c1ec7.vhd)
+    - see: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-classic-attach-disk/      
 
 ### To deploy:
 
