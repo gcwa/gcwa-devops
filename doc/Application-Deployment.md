@@ -27,7 +27,9 @@ Open file `playbook-openwayback.yml` and only keep the roles you need before run
 
 - if using Azure VM in Resource Manager mode, please note that the default gcwebarchives setup runs the app as the lacwayback user, which is not allowed to use a restricted port (80), so we run it on port 8081 and use an iptable rules to forward port 80 to 8081. (see http://stackoverflow.com/questions/24756240/how-can-i-use-iptables-on-centos-7)
  
+    yum install iptables-service
     iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8081
+    service iptables save
 
 ### To deploy:
 
