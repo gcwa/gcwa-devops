@@ -31,6 +31,21 @@ MS Azure server have been configured with https://github.com/gcwa/gcwa-devops
 - App: https://github.com/gcwa/gcwa-present
 - URL: http://webarchive.bac-lac.gc.ca/
 
+### Legacy
+
+Legacy openwayback/gcwa-present, now only serving 404 application that redirecto to gcwa-awgc
+
+- Server name: `bac-lac`
+- App: https://github.com/gcwa/fourohfour
+- Url: http://bac-lac.cloudapp.net
+- Url: http://bac-lac.cloudapp.net:8080
+
+Systemctl services: 
+
+    - fourohfour-owb.service
+    - fourohfour.service
+
+
 ## Setting up a Collection
 
 _example using Archive-IT Collection 5500 (pm.gc.ca)_
