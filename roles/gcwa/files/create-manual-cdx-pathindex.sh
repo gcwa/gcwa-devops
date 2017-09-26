@@ -1,9 +1,9 @@
-## Given a harddrive from WebCan
+## Given a manually created folder structure on /mnt/archives001 with a
+## directory for each 'collection'
 ##  - create the cdx
 ##  - sort the CDX
 ##  - create an index.cdx for each collection
 ##  - create a path-index.txt for each collection
-## execute from a webarchXYZ folder on the drive
 
 # !!! WON'T work with MINGw64 (provided by Git / Git-bash), USE CYGWIN !!!
 
