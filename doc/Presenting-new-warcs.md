@@ -10,20 +10,24 @@
 
 ## Servers Info
 
-MS Azure server have configured with https://github.com/gcwa/gcwa-devops
+MS Azure server have been configured with https://github.com/gcwa/gcwa-devops
 
-- Server name: `v99wayback01`
-- Hostname: `lacbac03.cloudapp.net`
+- Server name: `gcwa-awgc`
+- Hostname: 
+    - gcwa-awgc.canadaeast.cloudapp.azure.com
+    - webarchive.bac-lac.gc.ca
+    - archivesduweb.bac-lac.gc.ca
 
 OpenWayback Application
 
 - Path: /opt/tomcat/webapps/ROOT
-- URL: http://lacbac03.cloudapp.net:8080/wayback/
+- URL: http://webarchive.bac-lac.gc.ca:8080/wayback/
+
 
 GCWA-Present (GCWebArchive)
 
 - Path: /opt/gcwebarchives
-- URL: http://lacbac03.cloudapp.net/
+- URL: http://webarchive.bac-lac.gc.ca/
 
 ## Setting up a Collection
 

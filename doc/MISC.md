@@ -1,6 +1,6 @@
 # Misc / Draft
 
-theses snippets will be move to proper documentation page once completed and tested (if they prove to be useful)
+theses snippets will be moved to proper documentation page once completed and tested (if they prove to be useful)
 
 ## CDX Indexer
 
