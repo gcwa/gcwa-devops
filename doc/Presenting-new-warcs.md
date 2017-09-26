@@ -18,15 +18,17 @@ MS Azure server have been configured with https://github.com/gcwa/gcwa-devops
     - webarchive.bac-lac.gc.ca
     - archivesduweb.bac-lac.gc.ca
 
-OpenWayback Application
+### OpenWayback Application
 
 - Path: /opt/tomcat/webapps/ROOT
+- App https://github.com/gcwa/openwayback
 - URL: http://webarchive.bac-lac.gc.ca:8080/wayback/
 
 
-GCWA-Present (GCWebArchive)
+### GCWA-Present (GCWebArchive)
 
 - Path: /opt/gcwebarchives
+- App: https://github.com/gcwa/gcwa-present
 - URL: http://webarchive.bac-lac.gc.ca/
 
 ## Setting up a Collection
