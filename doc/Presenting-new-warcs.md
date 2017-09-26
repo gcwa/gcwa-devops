@@ -10,20 +10,41 @@
 
 ## Servers Info
 
-MS Azure server have configured with https://github.com/gcwa/gcwa-devops
+MS Azure server have been configured with https://github.com/gcwa/gcwa-devops
 
-- Server name: `v99wayback01`
-- Hostname: `lacbac03.cloudapp.net`
+- Server name: `gcwa-awgc`
+- Hostname: 
+    - gcwa-awgc.canadaeast.cloudapp.azure.com
+    - webarchive.bac-lac.gc.ca
+    - archivesduweb.bac-lac.gc.ca
 
-OpenWayback Application
+### OpenWayback Application
 
 - Path: /opt/tomcat/webapps/ROOT
-- URL: http://lacbac03.cloudapp.net:8080/wayback/
+- App https://github.com/gcwa/openwayback
+- URL: http://webarchive.bac-lac.gc.ca:8080/wayback/
 
-GCWA-Present (GCWebArchive)
+
+### GCWA-Present (GCWebArchive)
 
 - Path: /opt/gcwebarchives
-- URL: http://lacbac03.cloudapp.net/
+- App: https://github.com/gcwa/gcwa-present
+- URL: http://webarchive.bac-lac.gc.ca/
+
+### Legacy
+
+Legacy openwayback/gcwa-present, now only serving 404 application that redirecto to gcwa-awgc
+
+- Server name: `bac-lac`
+- App: https://github.com/gcwa/fourohfour
+- Url: http://bac-lac.cloudapp.net
+- Url: http://bac-lac.cloudapp.net:8080
+
+Systemctl services: 
+
+    - fourohfour-owb.service
+    - fourohfour.service
+
 
 ## Setting up a Collection
 
