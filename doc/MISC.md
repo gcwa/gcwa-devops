@@ -97,3 +97,11 @@ and copy it to
         collection=$(basename $(dirname $source))        
         cp $source "/data/indexes/openwayback/path-index/"$fileshare"__"$collection"__path-index.txt"
     done
+    
+## Fix for CIFS mountpoint that hangs in Azure    
+
+lazy unmount of all cifs shares and then re-mount will usually fix the issue.
+
+    sudo umount -a -t cifs -l
+    sudo mount -a -t cifs
+   
