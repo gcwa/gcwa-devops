@@ -104,4 +104,9 @@ lazy unmount of all cifs shares and then re-mount will usually fix the issue.
 
     sudo umount -a -t cifs -l
     sudo mount -a -t cifs
+    
+Tomcat will need to be restarted after that
+
+    sudo systemctl restart tomcat
+
    
